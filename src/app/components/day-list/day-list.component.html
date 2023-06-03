@@ -1,0 +1,18 @@
+<div class="dayList">
+  <header class="dayList--header">
+    <app-day-list-form
+      (onAdd)="addNewTask($event)"
+      (onClear)="clearTaskList()"
+    ></app-day-list-form>
+  </header>
+  <hr />
+  <div class="actionsList">
+    <app-todoItem
+      *ngFor="let task of taskList"
+      [task]="task"
+      (deleteTask)="deliteTaskFromList($event)"
+      (saveTask)="saveTaskInList($event)"
+      (checkedTask)="doCheck($event)"
+    ></app-todoItem>
+  </div>
+</div>

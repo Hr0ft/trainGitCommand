@@ -1,0 +1,14 @@
+<div class="dayList-form">
+  <input type="text" class="dayList-taskHeader" [(ngModel)]="title" />
+  <textarea
+    type="text"
+    class="dayList-taskDescription"
+    [(ngModel)]="text"
+  ></textarea>
+  <button class="dayList-form-addBtn" (click)="addTask()">
+    добавить задачу
+  </button>
+  <button class="dayList-form-clearBtn" (click)="clearTaskList()">
+    Очистить список
+  </button>
+</div>

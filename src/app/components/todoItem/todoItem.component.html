@@ -1,0 +1,52 @@
+<div class="app-todoItem">
+  <div class="app-todoItem--wrapper">
+    <form
+      [class.onEdit]="!task.onEdit"
+      [formGroup]="form"
+      (ngSubmit)="submit()"
+    >
+      <div class="app-todoItem--title" *ngIf="!task.onEdit; else input">
+        {{ task.header }}
+      </div>
+      <ng-template #input>
+        <input
+          type="text"
+          formControlName="title"
+          maxlength="35"
+          class="app-todoItem--header"
+        />
+      </ng-template>
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="8"
+        maxlength="640"
+        formControlName="description"
+      ></textarea>
+
+      <button type="button" class="actionsEdit" (click)="onEdit(task)"></button>
+
+      <div class="app-todoItem--checkbox">
+        <button
+          type="button"
+          class="checkbox"
+          [class.checkbox--checked]="task.chacked"
+          (click)="onChecked(task)"
+        ></button>
+      </div>
+
+      <div class="app-btn-save--position">
+        <button type="submit" class="todoItem-btn todoItem-btn--save"></button>
+      </div>
+
+      <div class="app-btn-delete--position">
+        <button
+          type="button"
+          class="todoItem-btn todoItem-btn--delete"
+          (click)="onDelete(task.id)"
+        ></button>
+      </div>
+    </form>
+  </div>
+</div>
